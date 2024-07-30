@@ -4,10 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@pinia/nuxt',
-    "@nuxtjs/tailwindcss",
     "@nuxtjs/i18n",
     "@nuxt/image",
     '@nuxtjs/color-mode',
-    "nuxt-quasar-ui"
+    "nuxt-quasar-ui",
+    "@nuxt/icon"
   ],
 })
