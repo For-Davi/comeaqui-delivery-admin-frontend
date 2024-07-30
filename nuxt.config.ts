@@ -11,5 +11,6 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-quasar-ui",
     "@nuxt/icon",
+    "@nuxt/eslint"
   ],
 });

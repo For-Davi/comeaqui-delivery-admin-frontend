@@ -1,9 +1,10 @@
 <script lang="ts">
-  function             teste(x = 5) {
-      
-  }
+const teste = (x == 5) => {
+  console.log('teste');
+}
+
 </script>
 
 <template>
-  <div class="text-h3">Dashboard</div>
+  <div class="text-h3" onclick="teste()">Dashboard</div>
 </template>
