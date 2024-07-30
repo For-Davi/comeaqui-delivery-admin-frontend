@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^0.4.0",
-    "eslint": "^8.57.0"
+    "@nuxt/eslint-config": "^0.4.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.27.0"
   }
 }

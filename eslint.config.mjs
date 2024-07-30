@@ -72,7 +72,7 @@ export default withNuxt(
       'dot-notation': 'warn',
       'eqeqeq': 'warn',
       'func-name-matching': 'warn',
-      'func-style': ['warn', 'declarion'],
+      'func-style': ['warn', 'declaration', { 'allowArrowFunctions': true }],
       'init-declarations': 'warn',
       'max-depth': 'warn',
       'no-else-return': 'warn',

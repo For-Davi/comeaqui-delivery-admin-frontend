@@ -1,8 +1,5 @@
 <script lang="ts">
-const teste = (x == 5) => {
-  console.log('teste');
-}
-
+const x = 5;
 </script>
 
 <template>
