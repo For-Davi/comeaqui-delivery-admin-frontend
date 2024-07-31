@@ -1,7 +1,4 @@
-<script lang="ts">
-const x = 5;
-</script>
-
+<script setup lang="ts"></script>
 <template>
-  <div class="text-h3" onclick="teste()">Dashboard</div>
+	<div class="text-h3" id="tst">dashboard</div>
 </template>
