@@ -26,7 +26,7 @@ export default defineConfig({
   animations: "all",
   build: {
     vueRouterMode: "history",
-    extendWebpack(cfg) {},
+    extendWebpack() {},
     showProgress: true,
   },
   devServer: {
