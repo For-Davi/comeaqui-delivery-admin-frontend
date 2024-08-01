@@ -1,15 +1,13 @@
 <script setup lang="ts">
-const multiply = (a: number, b) => a * b;
-const    x = () => {};
-function teste() {
-  console.log(teste);
-}
+import type { LayoutKey } from "#build/types/layouts";
+
+const layout = ref<LayoutKey>("super");
 </script>
 
 <template>
   <div>
     <NuxtRouteAnnouncer />
-    <NuxtLayout :name="teste">
+    <NuxtLayout :name="layout">
       <NuxtPage />
     </NuxtLayout>
   </div>
