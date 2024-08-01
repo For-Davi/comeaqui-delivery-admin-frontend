@@ -1,3 +1,3 @@
 <template>
-	<div class="text-h3">Updates</div>
+  <div class="text-h3">Updates</div>
 </template>
