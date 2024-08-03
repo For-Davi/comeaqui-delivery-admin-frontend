@@ -1,9 +1,12 @@
+// plugins/axios.js
+import { defineNuxtPlugin } from "#app";
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "https://some-domain.com/api/",
-  timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
-});
+export default defineNuxtPlugin((nuxtApp) => {
+  const api = axios.create({
+    baseURL: "https://api.example.com", // Altere para a URL da sua API
+  });
 
-export { api };
+  // Adicione o axios ao contexto global do Nuxt
+  nuxtApp.provide("axios", api);
+});
