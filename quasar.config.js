@@ -18,11 +18,20 @@ export default defineConfig({
     "bootstrap-icons",
   ],
   framework: {
-    plugins: ["Dialog", "Notify"],
+    plugins: [
+      "Dialog",
+      "Notify",
+      "Loading",
+      "LocalStorage",
+      "SessionStorage",
+      "Cookies",
+      "Meta",
+    ],
     components: ["QLayout", "QHeader", "QFooter", "QPageContainer", "QPage"],
     directives: ["Ripple"],
     iconSet: "material-icons",
     cssAddon: true,
+    autoImportComponentCase: "pascal",
   },
   animations: "all",
   build: {
