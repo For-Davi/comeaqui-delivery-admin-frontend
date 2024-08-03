@@ -48,5 +48,5 @@ export default defineConfig({
       },
     },
   },
-  css: ["app.sass"],
+  css: ["~/assets/scss/main.scss"],
 });
