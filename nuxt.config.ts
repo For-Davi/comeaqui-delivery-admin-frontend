@@ -18,5 +18,6 @@ export default defineNuxtConfig({
     "nuxt-quasar-ui",
     "@nuxt/icon",
     "@nuxt/eslint",
+    "@nuxtjs/axios",
   ],
 });
