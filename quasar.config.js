@@ -6,6 +6,7 @@ export default defineConfig({
     description: "Comeaqui config Quasar",
     icons: [],
   },
+  boot: ["i18n"],
   extras: [
     "material-icons",
     "mdi-v7",
@@ -39,26 +40,4 @@ export default defineConfig({
     },
   },
   css: ["app.sass"],
-  pwa: {
-    workboxPluginMode: "GenerateSW",
-    workboxOptions: {},
-    manifest: {
-      name: "My Quasar App",
-      short_name: "QuasarApp",
-      description: "A Quasar Framework app",
-      display: "standalone",
-      start_url: "/",
-      theme_color: "#027be3",
-      background_color: "#ffffff",
-    },
-  },
-  electron: {
-    bundler: "packager",
-    packager: {},
-    builder: {},
-  },
-  capacitor: {
-    hideSplashscreen: true,
-  },
-  cordova: {},
 });
