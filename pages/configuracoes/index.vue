@@ -1,5 +1,5 @@
 <template>
   <main class="render-content c-bg-dark-one">
-    <div>WebApp</div>
+    <div>Configurações</div>
   </main>
 </template>

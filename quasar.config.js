@@ -32,12 +32,22 @@ export default defineConfig({
     iconSet: "material-icons",
     cssAddon: true,
     autoImportComponentCase: "pascal",
+    config: {
+      brand: {
+        primary: "ff007f",
+      },
+    },
   },
   animations: "all",
   build: {
     vueRouterMode: "history",
     extendWebpack() {},
     showProgress: true,
+    loaders: {
+      scss: {
+        additionalData: `@import "@/assets/scss/quasar.variables.scss";`,
+      },
+    },
   },
   devServer: {
     proxy: {
@@ -48,5 +58,5 @@ export default defineConfig({
       },
     },
   },
-  css: ["~/assets/scss/main.scss"],
+  css: ["~/assets/scss/quasar.variables.scss"],
 });

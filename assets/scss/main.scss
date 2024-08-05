@@ -1,0 +1,17 @@
+@import 'quasar.variables.scss';
+@import 'colors.scss';
+
+.render-content {
+    height: calc(100vh - 50px);
+}
+
+.separator-dark {
+    border-top: 1px solid $dark-bg-two;
+}
+
+.selected-item-menu-dark {
+    width: 90%;
+    border-radius: 10px;
+}
+
+

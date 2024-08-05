@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { LayoutKey } from "#build/types/layouts";
 
-const layout = ref<LayoutKey>("super");
+const layout = ref<LayoutKey>("admin");
 // ATIVAR QUANDO O SITE FOR PARA O AR
 // useHead({
 //   title: "My App",
