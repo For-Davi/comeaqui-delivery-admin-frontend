@@ -3,16 +3,19 @@ import { useI18n } from "vue-i18n";
 import type { ItemsDrawerUser } from "~/typescript/interfaces/data/ItemsDrawer";
 import { languages } from "~/utils/languages";
 
+const $q = useQuasar();
 const { locale, t } = useI18n();
 const mode = ref<boolean>(true);
 const optionsUser = computed<Array<ItemsDrawerUser>>(() => [
   {
-    src: "/icons/configuracoes-dark.png",
+    srcLight: "/icons/configuracoes-dark.png",
+    srcDark: "/icons/configuracoes.png",
     label: t("optionsUser.settings"),
     value: "settings",
   },
   {
-    src: "/icons/logout.png",
+    srcLight: "/icons/logout.png",
+    srcDark: "/icons/logout-dark.png",
     label: t("optionsUser.logout"),
     value: "logout",
   },
@@ -24,14 +27,26 @@ const changeLocale = (language: string) => {
 const selectedOption = (value: string) => {
   console.log("value", value);
 };
+
+watch(
+  mode,
+  () => {
+    $q.dark.set(mode.value);
+  },
+  { immediate: true },
+);
 </script>
 
 <template>
-  <QToolbar class="c-bg-dark-two">
-    <QToolbarTitle class="c-text-dark">
+  <QToolbar :class="$q.dark.isActive ? 'c-bg-light-two' : 'c-bg-dark-two'">
+    <QToolbarTitle :class="$q.dark.isActive ? 'c-text-light' : 'c-text-dark'">
       {{ t("hello") }} Carlos Davi
     </QToolbarTitle>
-    <QBtnDropdown :label="locale" flat>
+    <QBtnDropdown
+      :label="locale"
+      flat
+      :class="$q.dark.isActive ? 'c-text-light ' : 'c-text-dark'"
+    >
       <QList>
         <QItem
           v-for="(language, index) in languages"
@@ -39,6 +54,11 @@ const selectedOption = (value: string) => {
           v-close-popup
           clickable
           dense
+          :class="
+            $q.dark.isActive
+              ? 'c-text-light c-bg-light-two'
+              : 'c-text-dark c-bg-dark-two'
+          "
           @click="changeLocale(language)"
         >
           <QItemSection>
@@ -56,7 +76,12 @@ const selectedOption = (value: string) => {
       color="orange-10"
       class="q-mr-md"
     />
-    <QBtnDropdown rounded flat class="q-pa-none q-ml-sm">
+    <QBtnDropdown
+      rounded
+      flat
+      class="q-pa-none q-ml-sm"
+      :class="$q.dark.isActive ? 'c-text-light' : 'c-text-dark'"
+    >
       <template #label>
         <div class="row items-center no-wrap q-pa-none">
           <QAvatar>
@@ -69,10 +94,18 @@ const selectedOption = (value: string) => {
           v-for="(item, index) in optionsUser"
           :key="index"
           clickable
+          :class="
+            $q.dark.isActive
+              ? 'c-text-light c-bg-light-two'
+              : 'c-text-dark c-bg-dark-two'
+          "
           @click="selectedOption(item.value)"
         >
           <QItemSection avatar>
-            <QImg :src="item.src" width="30px" />
+            <QImg
+              :src="$q.dark.isActive ? item.srcLight : item.srcDark"
+              width="30px"
+            />
           </QItemSection>
           <QItemSection>{{ item.label }}</QItemSection>
         </QItem>

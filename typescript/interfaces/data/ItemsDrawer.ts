@@ -6,7 +6,8 @@ export interface ItemsDrawerAdmin {
 }
 
 export interface ItemsDrawerUser {
-  src: string;
+  srcLight?: string;
+  srcDark?: string;
   label: string;
   value: string;
 }
