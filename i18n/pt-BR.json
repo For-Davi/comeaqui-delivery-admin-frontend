@@ -14,5 +14,10 @@
     "notifications": "Notificações",
     "settings": "Configurações",
     "dashboard": "teste"
+  },
+  "logout": "Sair",
+  "optionsUser": {
+    "settings": "Configurações",
+    "logout": "Sair"
   }
 }

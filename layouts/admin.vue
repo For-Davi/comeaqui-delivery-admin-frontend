@@ -79,12 +79,6 @@ const menu = computed<Array<ItemsDrawerAdmin>>(() => [
     separator: false,
     to: "/notificacoes",
   },
-  {
-    src: "/icons/configuracoes.png",
-    label: t("assideOptions.settings"),
-    separator: false,
-    to: "/configuracoes",
-  },
 ]);
 
 const isActive = (item: string) => {
@@ -119,7 +113,7 @@ const isActive = (item: string) => {
             class="selected-item-menu-dark q-py-sm"
           >
             <QItemSection avatar>
-              <q-img :src="item.src" width="30px" />
+              <QImg :src="item.src" width="30px" />
             </QItemSection>
             <QItemSection class="c-text-dark">
               {{ item.label }}
