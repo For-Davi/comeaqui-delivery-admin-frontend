@@ -1,5 +1,5 @@
 <template>
   <main class="render-content c-bg-dark-one">
-    <div>WebApp</div>
+    <div>Carteira</div>
   </main>
 </template>

@@ -1,7 +1,5 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="render-content c-bg-dark-one">
-    <div>Dashboard</div>
+    <div>Historico</div>
   </div>
 </template>
