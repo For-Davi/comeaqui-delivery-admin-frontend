@@ -1,16 +1,4 @@
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
-  devtools: {
-    enabled: true,
-  },
-  css: ["~/assets/scss/main.scss"],
-  components: [
-    {
-      path: "~/components",
-      extensions: ["vue"],
-      pathPrefix: false,
-    },
-  ],
   modules: [
     "@pinia/nuxt",
     "@nuxt/image",
@@ -19,4 +7,14 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/eslint",
   ],
+  css: ["~/assets/scss/main.scss"],
+  components: [
+    {
+      path: "~/components",
+      extensions: ["vue"],
+      pathPrefix: false,
+    },
+  ],
+  compatibilityDate: "2024-08-06",
+  plugins: ["~/plugins/i18n.ts"],
 });

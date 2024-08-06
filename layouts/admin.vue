@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { ItemsDrawerAdmin } from "~/typescript/interfaces/data/ItemsDrawer";
+import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const route = useRoute();
 const drawer = ref<boolean>(true);
-const menu = reactive<Array<ItemsDrawerAdmin>>([
+const menu = computed<Array<ItemsDrawerAdmin>>(() => [
   {
     src: "/icons/dashboard.png",
     label: "Dashboard",
@@ -12,80 +15,80 @@ const menu = reactive<Array<ItemsDrawerAdmin>>([
   },
   {
     src: "/icons/pedidos.png",
-    label: "Pedidos",
+    label: t("assideOptions.demand"),
     separator: false,
     to: "/pedidos",
   },
   {
     src: "/icons/produtos.png",
-    label: "Produtos",
+    label: t("assideOptions.products"),
     separator: false,
     to: "/produtos",
   },
   {
     src: "/icons/historico.png",
-    label: "Histórico",
+    label: t("assideOptions.history"),
     separator: false,
     to: "/historico",
   },
   {
     src: "/icons/webApp.png",
-    label: "WebApp Vendas",
+    label: t("assideOptions.webAppSales"),
     separator: false,
     to: "/webApp",
   },
   {
     src: "/icons/promocoes.png",
-    label: "Promoções",
+    label: t("assideOptions.promotions"),
     separator: false,
     to: "/promocoes",
   },
   {
     src: "/icons/time.png",
-    label: "Colaboradores",
+    label: t("assideOptions.collaborators"),
     separator: false,
     to: "/colaboradores",
   },
   {
     src: "/icons/metas.png",
-    label: "Metas",
+    label: t("assideOptions.goals"),
     separator: false,
     to: "/metas",
   },
   {
     src: "/icons/carteira.png",
-    label: "Carteira",
+    label: t("assideOptions.wallet"),
     separator: false,
     to: "/carteira",
   },
   {
     src: "/icons/agenda.png",
-    label: "Agenda",
+    label: t("assideOptions.schedule"),
     separator: false,
     to: "/agenda",
   },
   {
     src: "/icons/atualizacoes.png",
-    label: "Atualizações",
+    label: t("assideOptions.updates"),
     separator: true,
     to: "/atualizacoes",
   },
   {
     src: "/icons/notificacoes.png",
-    label: "Notificações",
+    label: t("assideOptions.notifications"),
     separator: false,
     to: "/notificacoes",
   },
   {
     src: "/icons/configuracoes.png",
-    label: "Configurações",
+    label: t("assideOptions.settings"),
     separator: false,
     to: "/configuracoes",
   },
 ]);
 
 const isActive = (item: string) => {
-  return route.path == item;
+  return route.path === item;
 };
 </script>
 <template>
@@ -101,17 +104,6 @@ const isActive = (item: string) => {
       :class="$q.dark.isActive ? 'c-bg-dark-one' : 'c-bg-dark-one'"
       elevated
     >
-    <!-- <QDrawer
-      v-model="drawer"
-      show-if-above
-      :mini="miniState"
-      :width="280"
-      :breakpoint="500"
-      :class="$q.dark.isActive ? 'c-bg-dark-one' : 'c-bg-dark-one'"
-      elevated
-      @mouseover="miniState = false"
-      @mouseout="miniState = true"
-    > -->
       <QScrollArea class="fit">
         <QImg src="/images/logo-dark.png" height="90px" class="full-width" />
         <QList class="row justify-center">

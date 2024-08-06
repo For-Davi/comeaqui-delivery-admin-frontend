@@ -1,1 +1,1 @@
-export const languages: Array<string> = ["pt-BR", "en-Us"];
+export const languages: Array<string> = ["pt-BR", "en-US"];
