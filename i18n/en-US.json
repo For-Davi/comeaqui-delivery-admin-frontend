@@ -13,5 +13,10 @@
     "updates": "Updates",
     "notifications": "Notifications",
     "settings": "Settings"
+  },
+  "logout": "Logout",
+  "optionsUser": {
+    "settings": "Settings",
+    "logout": "Logout"
   }
 }

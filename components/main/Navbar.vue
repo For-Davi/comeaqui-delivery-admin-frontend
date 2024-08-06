@@ -1,72 +1,39 @@
-<!-- <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-import { languages } from "~/utils/languages";
-
-const { locale } = useI18n();
-const mode = ref<boolean>(true);
-
-const changeLocale = (language: string) => {
-  locale.value = language;
-};
-</script>
-<template>
-  <QToolbar class="c-bg-dark-two">
-    <QToolbarTitle class="c-text-dark">
-      {{ $t("hello") }}Carlos Davi ! locale {{ locale }}
-    </QToolbarTitle>
-    <q-btn-dropdown :label="locale" flat>
-      <q-list>
-        <q-item
-          v-for="(language, index) in languages"
-          :key="index"
-          v-close-popup
-          clickable
-          dense
-          @click="changeLocale(language)"
-        >
-          <q-item-section>
-            <q-item-label>{{ language }}</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-btn-dropdown>
-    <QToggle
-      v-model="mode"
-      :class="mode ? 'c-text-light ' : 'c-text-dark  '"
-      unchecked-icon="dark_mode"
-      checked-icon="light_mode"
-      size="lg"
-      color="orange-10"
-      class="q-mr-md"
-    />
-    <QBtn flat round dense class="c-bg-secondary q-mr-md">
-      <QAvatar color="primary" text-color="white">J</QAvatar>
-    </QBtn>
-  </QToolbar>
-</template> -->
 <script setup lang="ts">
-import { ref } from "vue";
 import { useI18n } from "vue-i18n";
+import type { ItemsDrawerUser } from "~/typescript/interfaces/data/ItemsDrawer";
 import { languages } from "~/utils/languages";
 
-// Obtenha o i18n global do Nuxt
-const { locale, t } = useI18n(); // Inclua `t` aqui para usar no template
+const { locale, t } = useI18n();
 const mode = ref<boolean>(true);
+const optionsUser = computed<Array<ItemsDrawerUser>>(() => [
+  {
+    src: "/icons/configuracoes-dark.png",
+    label: t("optionsUser.settings"),
+    value: "settings",
+  },
+  {
+    src: "/icons/logout.png",
+    label: t("optionsUser.logout"),
+    value: "logout",
+  },
+]);
 
-// Função para alterar o idioma
 const changeLocale = (language: string) => {
   locale.value = language;
+};
+const selectedOption = (value: string) => {
+  console.log("value", value);
 };
 </script>
 
 <template>
   <QToolbar class="c-bg-dark-two">
     <QToolbarTitle class="c-text-dark">
-      {{ t("hello") }} Carlos Davi ! locale {{ locale }}
+      {{ t("hello") }} Carlos Davi
     </QToolbarTitle>
-    <q-btn-dropdown :label="locale" flat>
-      <q-list>
-        <q-item
+    <QBtnDropdown :label="locale" flat>
+      <QList>
+        <QItem
           v-for="(language, index) in languages"
           :key="index"
           v-close-popup
@@ -74,12 +41,12 @@ const changeLocale = (language: string) => {
           dense
           @click="changeLocale(language)"
         >
-          <q-item-section>
-            <q-item-label>{{ language }}</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-btn-dropdown>
+          <QItemSection>
+            <QItemLabel>{{ language }}</QItemLabel>
+          </QItemSection>
+        </QItem>
+      </QList>
+    </QBtnDropdown>
     <QToggle
       v-model="mode"
       :class="mode ? 'c-text-light ' : 'c-text-dark  '"
@@ -89,8 +56,27 @@ const changeLocale = (language: string) => {
       color="orange-10"
       class="q-mr-md"
     />
-    <QBtn flat round dense class="c-bg-secondary q-mr-md">
-      <QAvatar color="primary" text-color="white">J</QAvatar>
-    </QBtn>
+    <QBtnDropdown rounded flat class="q-pa-none q-ml-sm">
+      <template #label>
+        <div class="row items-center no-wrap q-pa-none">
+          <QAvatar>
+            <QImg size="sm" src="/images/user.png" />
+          </QAvatar>
+        </div>
+      </template>
+      <QList>
+        <QItem
+          v-for="(item, index) in optionsUser"
+          :key="index"
+          clickable
+          @click="selectedOption(item.value)"
+        >
+          <QItemSection avatar>
+            <QImg :src="item.src" width="30px" />
+          </QItemSection>
+          <QItemSection>{{ item.label }}</QItemSection>
+        </QItem>
+      </QList>
+    </QBtnDropdown>
   </QToolbar>
 </template>
