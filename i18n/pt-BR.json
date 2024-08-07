@@ -19,5 +19,15 @@
   "optionsUser": {
     "settings": "Configurações",
     "logout": "Sair"
+  },
+  "dashboard": {
+    "invoicing": "Faturamento",
+    "pending": "Pendente",
+    "finished": "Finalizado",
+    "demand": "pedidos",
+    "progress": "Andamento",
+    "ticketAverage": "Bilhete Médio",
+    "assessment": "Avaliação",
+    "lowestGrade": "Menor Nota"
   }
 }

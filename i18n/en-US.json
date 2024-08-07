@@ -18,5 +18,15 @@
   "optionsUser": {
     "settings": "Settings",
     "logout": "Logout"
+  },
+  "dashboard": {
+    "invoicing": "Invoicing",
+    "pending": "Pending",
+    "finished": "Finished",
+    "demand": "demand",
+    "progress": "Progress",
+    "ticketAverage": "Average Ticket",
+    "assessment": "Assessment",
+    "lowestGrade": "Lowest Grade"
   }
 }

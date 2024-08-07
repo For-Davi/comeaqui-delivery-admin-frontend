@@ -154,7 +154,9 @@ const getClass = (itemTo: string) => {
         </QList>
       </QScrollArea>
     </QDrawer>
-    <QPageContainer class="c-bg-dark-one">
+    <QPageContainer
+      :class="$q.dark.isActive ? 'c-bg-light-one' : 'c-bg-dark-one'"
+    >
       <slot />
     </QPageContainer>
   </QLayout>
