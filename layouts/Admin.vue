@@ -3,78 +3,91 @@ import type { ItemsDrawerAdmin } from "~/typescript/interfaces/data/ItemsDrawer"
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
+const $q = useQuasar();
 const { t } = useI18n();
 const route = useRoute();
 const drawer = ref<boolean>(true);
 const menu = computed<Array<ItemsDrawerAdmin>>(() => [
   {
-    src: "/icons/dashboard.png",
+    srcLight: "/icons/dashboard-light.png",
+    srcDark: "/icons/dashboard-dark.png",
     label: "Dashboard",
     separator: false,
     to: "/dashboard",
   },
   {
-    src: "/icons/pedidos.png",
+    srcLight: "/icons/pedidos-light.png",
+    srcDark: "/icons/pedidos-dark.png",
     label: t("assideOptions.demand"),
     separator: false,
     to: "/pedidos",
   },
   {
-    src: "/icons/produtos.png",
+    srcLight: "/icons/produtos-light.png",
+    srcDark: "/icons/produtos-dark.png",
     label: t("assideOptions.products"),
     separator: false,
     to: "/produtos",
   },
   {
-    src: "/icons/historico.png",
+    srcLight: "/icons/historico-light.png",
+    srcDark: "/icons/historico-dark.png",
     label: t("assideOptions.history"),
     separator: false,
     to: "/historico",
   },
   {
-    src: "/icons/webApp.png",
+    srcLight: "/icons/webapp-light.png",
+    srcDark: "/icons/webapp-dark.png",
     label: t("assideOptions.webAppSales"),
     separator: false,
     to: "/webApp",
   },
   {
-    src: "/icons/promocoes.png",
+    srcLight: "/icons/promocoes-light.png",
+    srcDark: "/icons/promocoes-dark.png",
     label: t("assideOptions.promotions"),
     separator: false,
     to: "/promocoes",
   },
   {
-    src: "/icons/time.png",
+    srcLight: "/icons/time-light.png",
+    srcDark: "/icons/time-dark.png",
     label: t("assideOptions.collaborators"),
     separator: false,
     to: "/colaboradores",
   },
   {
-    src: "/icons/metas.png",
+    srcLight: "/icons/metas-light.png",
+    srcDark: "/icons/metas-dark.png",
     label: t("assideOptions.goals"),
     separator: false,
     to: "/metas",
   },
   {
-    src: "/icons/carteira.png",
+    srcLight: "/icons/carteira-light.png",
+    srcDark: "/icons/carteira-dark.png",
     label: t("assideOptions.wallet"),
     separator: false,
     to: "/carteira",
   },
   {
-    src: "/icons/agenda.png",
+    srcLight: "/icons/agenda-light.png",
+    srcDark: "/icons/agenda-dark.png",
     label: t("assideOptions.schedule"),
     separator: false,
     to: "/agenda",
   },
   {
-    src: "/icons/atualizacoes.png",
+    srcLight: "/icons/atualizacoes-light.png",
+    srcDark: "/icons/atualizacoes-dark.png",
     label: t("assideOptions.updates"),
     separator: true,
     to: "/atualizacoes",
   },
   {
-    src: "/icons/notificacoes.png",
+    srcLight: "/icons/notificacoes-light.png",
+    srcDark: "/icons/notificacoes-dark.png",
     label: t("assideOptions.notifications"),
     separator: false,
     to: "/notificacoes",
@@ -83,6 +96,14 @@ const menu = computed<Array<ItemsDrawerAdmin>>(() => [
 
 const isActive = (item: string) => {
   return route.path === item;
+};
+const getClass = (itemTo: string) => {
+  const isActiveRoute = itemTo === route.path;
+  if (isActiveRoute) {
+    return $q.dark.isActive ? "c-text-light" : "c-text-dark";
+  } else {
+    return $q.dark.isActive ? "c-text-light" : "c-text-dark";
+  }
 };
 </script>
 <template>
@@ -95,11 +116,19 @@ const isActive = (item: string) => {
       show-if-above
       :width="280"
       :breakpoint="500"
-      :class="$q.dark.isActive ? 'c-bg-dark-one' : 'c-bg-dark-one'"
+      :class="$q.dark.isActive ? 'c-bg-light-one' : 'c-bg-dark-one'"
       elevated
     >
       <QScrollArea class="fit">
-        <QImg src="/images/logo-dark.png" height="90px" class="full-width" />
+        <QImg
+          :src="
+            $q.dark.isActive
+              ? '/images/logo-comeaqui-light.png'
+              : '/images/logo-comeaqui-dark.png'
+          "
+          height="90px"
+          class="full-width"
+        />
         <QList class="row justify-center">
           <QItem
             v-for="(item, index) in menu"
@@ -109,13 +138,16 @@ const isActive = (item: string) => {
             clickable
             :to="item.to"
             :active="isActive(item.to)"
-            active-class="c-bg-dark-two c-text-light"
-            class="selected-item-menu-dark q-py-sm"
+            :active-class="$q.dark.isActive ? 'c-bg-light-two' : 'c-bg-details'"
+            class="selected-item-menu-dark q-py-sm text-bold"
           >
             <QItemSection avatar>
-              <QImg :src="item.src" width="30px" />
+              <QImg
+                :src="$q.dark.isActive ? item.srcLight : item.srcDark"
+                width="30px"
+              />
             </QItemSection>
-            <QItemSection class="c-text-dark">
+            <QItemSection :class="getClass(item.to)">
               {{ item.label }}
             </QItemSection>
           </QItem>

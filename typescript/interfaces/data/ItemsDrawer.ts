@@ -1,12 +1,14 @@
 export interface ItemsDrawerAdmin {
-  src: string;
+  srcLight?: string;
+  srcDark?: string;
   label: string;
   separator: boolean;
   to: string;
 }
 
 export interface ItemsDrawerUser {
-  src: string;
+  srcLight?: string;
+  srcDark?: string;
   label: string;
   value: string;
 }
