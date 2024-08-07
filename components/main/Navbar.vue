@@ -8,13 +8,13 @@ const { locale, t } = useI18n();
 const mode = ref<boolean>(true);
 const optionsUser = computed<Array<ItemsDrawerUser>>(() => [
   {
-    srcLight: "/icons/configuracoes-dark.png",
-    srcDark: "/icons/configuracoes.png",
+    srcLight: "/icons/configuracoes-light.png",
+    srcDark: "/icons/configuracoes-dark.png",
     label: t("optionsUser.settings"),
     value: "settings",
   },
   {
-    srcLight: "/icons/logout.png",
+    srcLight: "/icons/logout-light.png",
     srcDark: "/icons/logout-dark.png",
     label: t("optionsUser.logout"),
     value: "logout",
@@ -39,8 +39,11 @@ watch(
 
 <template>
   <QToolbar :class="$q.dark.isActive ? 'c-bg-light-two' : 'c-bg-dark-two'">
-    <QToolbarTitle :class="$q.dark.isActive ? 'c-text-light' : 'c-text-dark'">
-      {{ t("hello") }} Carlos Davi
+    <QToolbarTitle
+      :class="$q.dark.isActive ? 'c-text-light' : 'c-text-dark'"
+      class="text-bold"
+    >
+      {{ t("hello") }}, Carlos Davi !
     </QToolbarTitle>
     <QBtnDropdown
       :label="locale"
@@ -62,7 +65,7 @@ watch(
           @click="changeLocale(language)"
         >
           <QItemSection>
-            <QItemLabel>{{ language }}</QItemLabel>
+            <QItemLabel class="text-weight-medium">{{ language }}</QItemLabel>
           </QItemSection>
         </QItem>
       </QList>
@@ -80,7 +83,7 @@ watch(
       rounded
       flat
       class="q-pa-none q-ml-sm"
-      :class="$q.dark.isActive ? 'c-text-light' : 'c-text-dark'"
+      :class="$q.dark.isActive ? 'c-text-light' : 'c-bg-details c-text-dark'"
     >
       <template #label>
         <div class="row items-center no-wrap q-pa-none">
@@ -107,7 +110,7 @@ watch(
               width="30px"
             />
           </QItemSection>
-          <QItemSection>{{ item.label }}</QItemSection>
+          <QItemSection class="text-bold">{{ item.label }}</QItemSection>
         </QItem>
       </QList>
     </QBtnDropdown>
