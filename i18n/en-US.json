@@ -28,5 +28,8 @@
     "ticketAverage": "Average Ticket",
     "assessment": "Assessment",
     "lowestGrade": "Lowest Grade"
+  },
+  "pedidos": {
+    "aceptDemand": "Accept Demand"
   }
 }

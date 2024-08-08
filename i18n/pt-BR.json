@@ -29,5 +29,8 @@
     "ticketAverage": "Bilhete Médio",
     "assessment": "Avaliação",
     "lowestGrade": "Menor Nota"
+  },
+  "pedidos": {
+    "aceptDemand": "Aceitar pedido"
   }
 }

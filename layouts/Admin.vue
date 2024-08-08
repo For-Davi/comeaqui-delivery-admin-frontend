@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ItemsDrawerAdmin } from "~/typescript/interfaces/data/ItemsDrawer";
-import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const $q = useQuasar();
