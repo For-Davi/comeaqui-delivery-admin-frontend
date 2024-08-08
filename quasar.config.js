@@ -18,6 +18,17 @@ export default defineConfig({
     "bootstrap-icons",
   ],
   framework: {
+    // config: {
+    //   brand: {
+    //     primary: "#dfff0f",
+    //     secondary: "#26A69A",
+    //     accent: "#9C27B0",
+    //     positive: "#21BA45",
+    //     negative: "#C10015",
+    //     info: "#31CCEC",
+    //     warning: "#F2C037",
+    //   },
+    // },
     plugins: [
       "Dialog",
       "Notify",
@@ -32,11 +43,6 @@ export default defineConfig({
     iconSet: "material-icons",
     cssAddon: true,
     autoImportComponentCase: "pascal",
-    config: {
-      brand: {
-        primary: "ff007f",
-      },
-    },
   },
   animations: "all",
   build: {
@@ -58,5 +64,5 @@ export default defineConfig({
       },
     },
   },
-  css: ["~/assets/scss/quasar.variables.scss"],
+  css: ["~/assets/scss/main.scss"],
 });

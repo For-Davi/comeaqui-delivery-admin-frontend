@@ -63,6 +63,32 @@
     }
 }
 
+.table-light {
+    background-color: $light-bg-one;
+    border: 1px solid $light-bg-two;
+    color: $light-text;
+
+    .table-item {
+        border-top: 1px solid $light-bg-two;
+        border-bottom: 1px solid $light-bg-two;
+    }
+}
+
+.table-dark {
+    background-color: $dark-bg-one;
+    border: 1px solid $dark-bg-two;
+    color: $dark-text;
+
+    .table-item {
+            border-top: 1px solid $dark-bg-two;
+            border-bottom: 1px solid $dark-bg-two;
+        }
+}
+
+.icon-eye {
+    color: $details;
+}
+
 
 
 

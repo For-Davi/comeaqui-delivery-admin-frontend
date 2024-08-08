@@ -52,8 +52,8 @@ const imageStyles = computed(() => ({
       <div :style="dynamicStyles">
         <QImg fit="contain" :style="imageStyles" :src="props.src" />
       </div>
-      <QCardSection class="text column justify-between">
-        <div class="q-mb-sm">
+      <QCardSection class="text column justify-between q-py-sm">
+        <div>
           <div class="title">
             {{ title }}
           </div>
