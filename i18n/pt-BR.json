@@ -29,5 +29,20 @@
     "ticketAverage": "Bilhete Médio",
     "assessment": "Avaliação",
     "lowestGrade": "Menor Nota"
-  }
+  },
+  "pedidos": {
+    "aceptDemand": "Aceitar pedido"
+  },
+  "tableOrderProcuts": {
+    "position": "Posição",
+    "title": "Classificação dos Produtos"
+  },
+  "name": "Nome",
+  "amount": "Quantidade",
+  "quantity": "Quantidade",
+  "action": "Ação",
+  "notResults": "Sem resultados disponíveis",
+  "category": "Categoria",
+  "invoicing": "Faturamento",
+  "search": "Pesquisar"
 }

@@ -40,20 +40,20 @@ const imageStyles = computed(() => ({
 </script>
 
 <template>
-  <q-card
+  <QCard
     :class="$q.dark.isActive ? 'card-dashboard-light' : 'card-dashboard-dark'"
     flat
     :style="{ width: props.width }"
   >
-    <q-card-section
+    <QCardSection
       class="row justify-around items-center q-pa-none"
       :style="containerStyles"
     >
       <div :style="dynamicStyles">
-        <q-img fit="contain" :style="imageStyles" :src="props.src" />
+        <QImg fit="contain" :style="imageStyles" :src="props.src" />
       </div>
-      <q-card-section class="text column justify-between">
-        <div class="q-mb-sm">
+      <QCardSection class="text column justify-between q-py-sm">
+        <div>
           <div class="title">
             {{ title }}
           </div>
@@ -69,7 +69,7 @@ const imageStyles = computed(() => ({
             {{ valueSubtitle }}
           </div>
         </div>
-      </q-card-section>
-    </q-card-section>
-  </q-card>
+      </QCardSection>
+    </QCardSection>
+  </QCard>
 </template>

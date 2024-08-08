@@ -28,5 +28,19 @@
     "ticketAverage": "Average Ticket",
     "assessment": "Assessment",
     "lowestGrade": "Lowest Grade"
-  }
+  },
+  "pedidos": {
+    "aceptDemand": "Accept Demand"
+  },
+  "tableOrderProcuts": {
+    "position": "Position",
+    "title": "Product Classification"
+  },
+  "name": "Name",
+  "quantity": "Quantity",
+  "action": "Action",
+  "notResults": "No results available",
+  "category": "Category",
+  "invoicing": "Invoicing",
+  "search": "Search"
 }
